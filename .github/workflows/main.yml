@@ -20,12 +20,6 @@ jobs:
           node-version: 12
           registry-url: https://registry.npmjs.org/
 
-      - name: Set up Python 3.8
-        uses: actions/setup-python@v1
-        with:
-          python-version: 3.8
-          architecture: 'x64' # (x64 or x86)
-
       - name: Get Version ID
         id: get-version-id
         run: |
@@ -43,7 +37,7 @@ jobs:
           npm install
           npm run build
           mkdir site
-          cp dist/* site/
+          cp -r dist/* site/
           cp dist/index.html site/404.html
           
       - name: Release
