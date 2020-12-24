@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "start": "umi dev",
-    "build": "umi build",
+    "build": "NODE_OPTIONS=--max_old_space_size=4096 umi build",
     "postinstall": "umi generate tmp",
     "prettier": "prettier --write '**/*.{js,jsx,tsx,ts,less,md,json}'",
     "test": "umi-test",
@@ -28,6 +28,7 @@
     "@umijs/test": "^3.3.3",
     "antd": "^4.9.4",
     "lint-staged": "^10.0.7",
+    "monaco-editor-webpack-plugin": "^2.0.0",
     "prettier": "^2.2.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
