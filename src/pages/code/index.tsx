@@ -10,15 +10,18 @@ class Index extends React.Component {
     }
 
     async update(props: any) {
-        const url = props.location?.query?.url || '';
-        const ext = url.substring(url.lastIndexOf('.') + 1);
-        const code = await fetchCode(url);
-        if (code?.status) {
+        const valueUrl = props.location?.query?.valueUrl || null;
+        if (!valueUrl) {
+            return;
+        }
+        const ext = valueUrl.substring(valueUrl.lastIndexOf('.') + 1);
+        const value = await fetchCode(valueUrl);
+        if (value?.status) {
             return;
         }
         this.setState({
             loading: true,
-            code: code,
+            value: value,
             language: ext,
         });
     }
@@ -37,7 +40,7 @@ class Index extends React.Component {
     }
 
     state = {
-        code: '',
+        value: '',
         language: '',
         loading: false,
     };
@@ -54,7 +57,7 @@ class Index extends React.Component {
                 {this.state.loading === true && (
                     <div style={{ marginTop: '30px' }}>
                         <CodeEditor
-                            code={this.state.code}
+                            value={this.state.value}
                             language={this.state.language}
                         />
                     </div>

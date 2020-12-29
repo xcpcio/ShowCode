@@ -33,7 +33,7 @@ class CodeEditor extends React.Component {
     defaultState = {
         height: '860',
         language: 'cpp',
-        code: '',
+        value: '',
         theme: 'vs-light',
         options: this.defaultOptions,
     };
@@ -46,7 +46,7 @@ class CodeEditor extends React.Component {
         this.setState({
             height: props.height || this.defaultState.height,
             language: props.language || this.defaultState.language,
-            code: props.code || this.defaultState.code,
+            value: props.value || this.defaultState.value,
             theme: props.theme || this.defaultState.theme,
             options: { ...this.defaultOptions, ...props.options },
         });
@@ -69,7 +69,7 @@ class CodeEditor extends React.Component {
     state = {
         height: this.defaultState.height,
         language: this.defaultState.language,
-        code: this.defaultState.code,
+        value: this.defaultState.value,
         theme: this.defaultState.theme,
         options: this.defaultOptions,
     };
@@ -81,7 +81,7 @@ class CodeEditor extends React.Component {
                     width={'100%'}
                     height={this.state.height}
                     language={this.state.language}
-                    value={this.state.code}
+                    value={this.state.value}
                     options={this.state.options}
                     onChange={this.onChange}
                     editorDidMount={this.editorDidMount}

@@ -59,7 +59,7 @@ export default defineConfig({
     routes: [
         { path: '/', component: '@/pages/index', exact: true },
         { path: '/code', component: '@/pages/code', exact: true },
-        // { path: '/diff', component: '@/pages/diff', exact: true }
+        { path: '/diff', component: '@/pages/diff', exact: true },
     ],
     publicPath: CONFIG.publicPath,
 });
